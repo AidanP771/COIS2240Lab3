@@ -15,7 +15,7 @@ public class App extends JFrame {
     public App() {
         // JFrame settings
         //Setting Title
-        setTitle("Your Name's CSV Loader Application");
+        setTitle("Aidan's CSV Loader Application");
         //Setting Dimensions of Window
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,6 +29,8 @@ public class App extends JFrame {
          * 5-Add an action listener to the button that calls the load CSV function (below)
          * 6-Play around with coloring and styling to make your application look more professional
          */
+
+        JButton loadButton = new JButton("Load CSV");
         
 
         add(loadButton, BorderLayout.NORTH);
