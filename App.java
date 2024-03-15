@@ -21,7 +21,7 @@ public class App extends JFrame {
         setLayout(new BorderLayout());
 
         /*
-         * 1-Create a a new button named loadButton. The text in the Button should say
+         * 1-Create a new button named loadButton. The text in the Button should say
          * LoadCSV
          * 2-After that initialize a new TextArea (we already declared a textArea on
          * Line 11), this is the area where we will display our CSV.
@@ -35,6 +35,27 @@ public class App extends JFrame {
          */
 
         JButton loadButton = new JButton("Load CSV");
+        textArea = new JTextArea();
+        textArea.setEditable(false); // uneditable
+        JScrollPane scrollPane = new JScrollPane(textArea); // Wraping text area in a JScrollPane
+
+        // styling
+        textArea.setBackground(Color.LIGHT_GRAY);
+        loadButton.setForeground(Color.BLUE);
+        loadButton.setBackground(Color.WHITE);
+
+        // Action listener to load button
+        loadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+                    loadCsv(filePath);
+                }
+            }
+        });
 
         add(loadButton, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
